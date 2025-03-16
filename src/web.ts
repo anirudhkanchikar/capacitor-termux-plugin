@@ -1,10 +1,16 @@
 import { WebPlugin } from '@capacitor/core';
+import type { TermuxPlugin } from './definitions';
 
-import type { TermuxPluginPlugin } from './definitions';
+export class TermuxPluginWeb extends WebPlugin implements TermuxPlugin {
+  name: string;
+  platforms: string[];
+  constructor() {
+    super(); // No arguments
+    this.name = 'Termux';
+    this.platforms = ['web'];
+  }
 
-export class TermuxPluginWeb extends WebPlugin implements TermuxPluginPlugin {
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
+  async executeCommand(_options: { command: string }): Promise<void> {
+    throw new Error('Termux command execution is not supported on the web platform.');
   }
 }

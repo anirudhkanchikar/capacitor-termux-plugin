@@ -1,10 +1,9 @@
 import { registerPlugin } from '@capacitor/core';
+import type { TermuxPlugin } from './definitions';
 
-import type { TermuxPluginPlugin } from './definitions';
-
-const TermuxPlugin = registerPlugin<TermuxPluginPlugin>('TermuxPlugin', {
-  web: () => import('./web').then((m) => new m.TermuxPluginWeb()),
+const Termux = registerPlugin<TermuxPlugin>('Termux', {
+  web: () => import('./web').then(m => new m.TermuxPluginWeb()),
 });
 
 export * from './definitions';
-export { TermuxPlugin };
+export { Termux };
