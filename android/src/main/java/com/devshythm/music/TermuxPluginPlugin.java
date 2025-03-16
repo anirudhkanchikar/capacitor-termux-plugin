@@ -1,4 +1,4 @@
-package com.devrhythm.music;
+package com.devshythm.music;
 
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
